@@ -42,7 +42,7 @@ extension RepeatPasswordView {
     private func setConstraints() {
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(snp.top).inset(0)
-            make.leading.trailing.equalTo(5)
+            make.centerX.equalTo(snp.centerX)
             make.height.equalTo(40)
             make.width.equalTo(300)
         }

@@ -76,7 +76,7 @@ class RegistrationViewController: UIViewController {
         return button
     }()
     
-    let loginView = LoginView()
+    let loginView = LoginTFView()
     let passwordView = PasswordView()
     let repeatPV = RepeatPasswordView()
     

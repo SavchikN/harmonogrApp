@@ -14,6 +14,7 @@ class OnboardingViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -31,6 +32,8 @@ class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
 
         setupViews()
         setDelegates()

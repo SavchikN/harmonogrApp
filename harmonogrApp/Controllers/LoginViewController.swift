@@ -18,110 +18,99 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("LogIn", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
-        button.backgroundColor = .clear
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        return button
-    }()
+//    private let loginButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("LogIn", for: .normal)
+//        button.setTitleColor(.blue, for: .normal)
+//        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
+//        button.backgroundColor = .clear
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        button.layer.cornerRadius = 20
+//        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+//        return button
+//    }()
+//
+//    private let forgotButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("Forgot login or password?", for: .normal)
+//        button.setTitleColor(.blue, for: .normal)
+//        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 15)
+//        button.addTarget(self, action: #selector(forgotButtonPressed), for: .touchUpInside)
+//        return button
+//    }()
     
-    private let forgotButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Forgot login or password?", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 15)
-        button.addTarget(self, action: #selector(forgotButtonPressed), for: .touchUpInside)
-        return button
-    }()
-    
-    private let signUpTitle: UILabel = {
-        let label = UILabel()
-        label.text = "Don't Have An Account?"
-        label.font = UIFont(name: "Avenir Next", size: 15)
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        return label
-    }()
-    
-    private let signUpButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .clear
-        button.setTitle("SignUp", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 15)
-        button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
-        return button
-    }()
+//    private let signUpTitle: UILabel = {
+//        let label = UILabel()
+//        label.text = "Don't Have An Account?"
+//        label.font = UIFont(name: "Avenir Next", size: 15)
+//        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        return label
+//    }()
+//
+//    private let signUpButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.backgroundColor = .clear
+//        button.setTitle("SignUp", for: .normal)
+//        button.setTitleColor(.blue, for: .normal)
+//        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 15)
+//        button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
+//        return button
+//    }()
     
     let loginView = LoginView()
-    let passwordView = PasswordView()
-    let stackView = UIStackView()
+    let loginType = LoginTypeView()
+    let signUpView = SignUpView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.isEnabled = false
-        loginButton.setTitleColor(.gray, for: .normal)
+        signUpView.isHidden = true
+        
         setupViews()
-        setDelegates()
         setConstraints()
-    }
-    
-    func setDelegates() {
-        loginView.loginTextField.delegate = self
-        passwordView.passwordTextField.delegate = self
     }
     
     func setupViews() {
         view.backgroundColor = .white
         view.addSubview(welcomeLabel)
         view.addSubview(loginView)
-        view.addSubview(passwordView)
-        view.addSubview(loginButton)
-        view.addSubview(forgotButton)
-        view.addSubview(signUpTitle)
-        view.addSubview(signUpButton)
-    }
-
-    @objc func loginButtonPressed() {
-        print(loginView.loginTextField.text!)
+        view.addSubview(loginType)
+        view.addSubview(signUpView)
     }
     
-    @objc func forgotButtonPressed() {
-        print("tapp")
-    }
-    
-    @objc func signUpButtonPressed() {
-        let regVC = RegistrationViewController()
-        let navController = UINavigationController(rootViewController: regVC)
-        dismiss(animated: true, completion: nil)
-        present(navController, animated: true)
-    }
-}
-
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        if let login = loginView.loginTextField.text, let password = passwordView.passwordTextField.text, !login.isEmpty, !password.isEmpty {
-            loginButton.isEnabled = true
-            loginButton.setTitleColor(.blue, for: .normal)
-        } else {
-            loginButton.isEnabled = false
-            loginButton.setTitleColor(.gray, for: .normal)
-        }
+    func updateUI(_ view: UIView, hidden: Bool) {
+        view.isHidden = hidden
     }
 }
 
 extension LoginViewController {
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
+    @objc func loginTypeButtonPressed() {
+        loginType.updateButtonColor(loginColor: .blue, signUpColor: .gray)
+        loginType.updateButtonFont(lgButton: "Medium", spButton: "Regular")
+        updateUI(loginView, hidden: false)
+        updateUI(signUpView, hidden: true)
+    }
+    
+    @objc func signUpTypeButtonPressed() {
+        loginType.updateButtonColor(loginColor: .gray, signUpColor: .blue)
+        loginType.updateButtonFont(lgButton: "Regular", spButton: "Medium")
+        updateUI(loginView, hidden: true)
+        updateUI(signUpView, hidden: false)
+    }
+    
+    @objc func loginButtonPressed() {
+        print("login")
+    }
+    
+    @objc func forgotButtonPressed() {
+        print("K")
+    }
+    
+    @objc func signUpButtonPressed() {
+        let firstVC = LoginViewController()
+        let secondVC = OnboardingViewController()
+        navigationController?.pushViewController(secondVC, animated: true)
     }
 }
 
@@ -132,40 +121,25 @@ extension LoginViewController {
             make.centerX.equalTo(view.snp.centerX)
         }
         
+        loginType.snp.makeConstraints { make in
+            make.top.equalTo(welcomeLabel.snp.bottom).inset(-5)
+            make.centerX.equalTo(view.snp.centerX)
+            make.width.equalTo(250)
+            make.height.equalTo(70)
+        }
+        
         loginView.snp.makeConstraints { make in
-            make.top.equalTo(welcomeLabel.snp.bottom).inset(-20)
-            make.height.equalTo(60)
-            make.width.equalTo(300)
-            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(loginType.snp.bottom).inset(30)
+            make.leading.equalTo(view.snp.leading).inset(20)
+            make.trailing.equalTo(view.snp.trailing).inset(20)
+            make.height.equalTo(250)
         }
         
-        passwordView.snp.makeConstraints { make in
-            make.top.equalTo(loginView.snp.bottom).inset(5)
-            make.height.equalTo(60)
-            make.width.equalTo(300)
-            make.centerX.equalTo(view.snp.centerX)
-        }
-        
-        forgotButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordView.snp.bottom).inset(5)
-            make.centerX.equalTo(view.snp.centerX)
-        }
-        
-        loginButton.snp.makeConstraints { make in
-            make.top.equalTo(forgotButton.snp.bottom).inset(-20)
-            make.centerX.equalTo(view.snp.centerX)
-            make.height.equalTo(50)
-            make.width.equalTo(200)
-        }
-        
-        signUpTitle.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).inset(-10)
-            make.leading.equalTo(view.snp.leading).inset(85)
-        }
-        
-        signUpButton.snp.makeConstraints { make in
-            make.top.equalTo(loginButton.snp.bottom).inset(-3)
-            make.leading.equalTo(signUpTitle.snp.trailing).inset(-7)
+        signUpView.snp.makeConstraints { make in
+            make.top.equalTo(loginType.snp.bottom).inset(-10)
+            make.leading.equalTo(view.snp.leading).inset(20)
+            make.trailing.equalTo(view.snp.trailing).inset(20)
+            make.height.equalTo(350)
         }
     }
 }
