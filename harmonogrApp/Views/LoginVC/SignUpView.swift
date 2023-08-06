@@ -29,7 +29,7 @@ class SignUpView: UIView {
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("SignUp", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(.gray, for: .normal)
         button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
@@ -47,11 +47,18 @@ class SignUpView: UIView {
         super.init(frame: frame)
         
         setupViews()
+        setDelegates()
         setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setDelegates() {
+        loginTFView.loginTextField.delegate = self
+        passwordView.passwordTextField.delegate = self
+        repeatPassword.passwordTextField.delegate = self
     }
     
     func setupViews() {
@@ -60,6 +67,18 @@ class SignUpView: UIView {
         addSubview(loginTFView)
         addSubview(passwordView)
         addSubview(repeatPassword)
+    }
+}
+
+extension SignUpView: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let name = nameTF.text, let login = loginTFView.loginTextField.text, let password = passwordView.passwordTextField.text, let repeatPass = repeatPassword.passwordTextField.text, !name.isEmpty, !login.isEmpty, !password.isEmpty, !repeatPass.isEmpty {
+            signUpButton.isEnabled = true
+            signUpButton.setTitleColor(.blue, for: .normal)
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.setTitleColor(.gray, for: .normal)
+        }
     }
 }
 

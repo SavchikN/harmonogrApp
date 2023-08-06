@@ -93,11 +93,8 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController {
     @objc func nextButtonTapped() {
-        let newViewController = MainViewController()
-        if let navigationController = self.navigationController {
-            navigationController.setViewControllers([newViewController], animated: true)
-        }
-        
+        let tabBarController = TabBarController()
+        navigationController?.pushViewController(tabBarController, animated: true)
         print("tapp")
     }
 }

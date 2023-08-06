@@ -100,7 +100,8 @@ extension LoginViewController {
     }
     
     @objc func loginButtonPressed() {
-        print("login")
+        let tabBarController = TabBarController()
+        navigationController?.pushViewController(tabBarController, animated: true)
     }
     
     @objc func forgotButtonPressed() {
@@ -108,7 +109,6 @@ extension LoginViewController {
     }
     
     @objc func signUpButtonPressed() {
-        let firstVC = LoginViewController()
         let secondVC = OnboardingViewController()
         navigationController?.pushViewController(secondVC, animated: true)
     }
