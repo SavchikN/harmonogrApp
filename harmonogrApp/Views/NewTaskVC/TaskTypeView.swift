@@ -61,6 +61,7 @@ extension TaskTypeView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TypesCollectionViewCells else { return UICollectionViewCell() }
+        cell.index = indexPath.row
         cell.typeLabel.text = taskTypes[indexPath.row]
         cell.typeImage.image = taskImages[indexPath.row]
         return cell

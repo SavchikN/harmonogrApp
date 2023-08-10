@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
         title = "Menu"
         navigationController?.navigationItem.backBarButtonItem = .none
         view.backgroundColor = .white
+        tableView.delegate = self
         
         setupViews()
         configure()
@@ -81,6 +82,21 @@ class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+extension MainViewController: TaskTableViewDelegate {
+    func didSelectAt(_ task: ToDo, index indexPath: IndexPath) {
+        tableView.tableView.deselectRow(at: indexPath, animated: true)
+        
+        let descriptionView = DescriptionView(frame: CGRect(x: 0, y: 0, width: 300, height: 330))
+        descriptionView.center = tableView.center
+        
+        descriptionView.mainTitle.text = task.title
+        descriptionView.descriptionLabel.text = task.descript
+        
+        descriptionView.showAnimated(on: self)
+        
     }
 }
 

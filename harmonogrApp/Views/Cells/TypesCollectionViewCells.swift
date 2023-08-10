@@ -10,6 +10,8 @@ import SnapKit
 
 class TypesCollectionViewCells: UICollectionViewCell {
     
+    let typeColors = [#colorLiteral(red: 0.5393829942, green: 0.7509046197, blue: 0.2320667803, alpha: 1), #colorLiteral(red: 0.9972404838, green: 0.4982656837, blue: 0.01081676036, alpha: 1), #colorLiteral(red: 0.9916325212, green: 0.006866422482, blue: 0.0002546116593, alpha: 1)]
+    
     let typeLabel: UILabel = {
         let type = UILabel()
         type.textColor = .black
@@ -23,14 +25,22 @@ class TypesCollectionViewCells: UICollectionViewCell {
         return image
     }()
     
+    var index = 0
+    
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 layer.borderWidth = 1.5
                 layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.backgroundColor = self.typeColors[self.index]
+                }
+                
                 typeLabel.font = UIFont(name: "Avenir Next Medium", size: 24)
             } else {
                 layer.borderWidth = 0.5
+                backgroundColor = .white
                 typeLabel.font = UIFont(name: "Avenir Next", size: 24)
             }
         }

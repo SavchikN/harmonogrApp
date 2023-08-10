@@ -11,6 +11,8 @@
 		1145EF0C2A1FC9000036D355 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1145EF0B2A1FC9000036D355 /* MainViewController.swift */; };
 		1162C3CE2A7EC22D006A5941 /* harmonogrApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3CC2A7EC22D006A5941 /* harmonogrApp.xcdatamodeld */; };
 		1162C3D02A7EC275006A5941 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3CF2A7EC275006A5941 /* StorageManager.swift */; };
+		1162C3D22A7F7AF6006A5941 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */; };
+		1162C3D62A7F7FB8006A5941 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */; };
 		118D38122A28EFC80094B7D5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */; };
 		118D38142A28F21D0094B7D5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38132A28F21D0094B7D5 /* OnboardingView.swift */; };
 		118D38162A2BA6BD0094B7D5 /* PageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38152A2BA6BD0094B7D5 /* PageImageView.swift */; };
@@ -42,7 +44,6 @@
 		11B6A9A72A0A92CF009EB4B8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 11B6A9A62A0A92CF009EB4B8 /* FirebaseAuth */; };
 		11B6A9A92A0A98D2009EB4B8 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A9A82A0A98D2009EB4B8 /* RegistrationViewController.swift */; };
 		11B6A9AC2A0EED93009EB4B8 /* RepeatPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A9AB2A0EED93009EB4B8 /* RepeatPasswordView.swift */; };
-		11D09BDF2A41E40F0056941A /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D09BDE2A41E40F0056941A /* WeekView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		1145EF0B2A1FC9000036D355 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1162C3CD2A7EC22D006A5941 /* harmonogrApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = harmonogrApp.xcdatamodel; sourceTree = "<group>"; };
 		1162C3CF2A7EC275006A5941 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		118D38132A28F21D0094B7D5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		118D38152A2BA6BD0094B7D5 /* PageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageImageView.swift; sourceTree = "<group>"; };
@@ -80,7 +83,6 @@
 		11B6A9A12A0A8B02009EB4B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11B6A9A82A0A98D2009EB4B8 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		11B6A9AB2A0EED93009EB4B8 /* RepeatPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatPasswordView.swift; sourceTree = "<group>"; };
-		11D09BDE2A41E40F0056941A /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +132,9 @@
 		118D381F2A30C5C50094B7D5 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				11D09BDE2A41E40F0056941A /* WeekView.swift */,
 				11A501C82A5EE6C800D30CFF /* TitleView.swift */,
+				11A501D52A715FC600D30CFF /* TaskTableView.swift */,
+				1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -174,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				11A501CF2A6D7E4400D30CFF /* TaskTypeView.swift */,
-				11A501D52A715FC600D30CFF /* TaskTableView.swift */,
 			);
 			path = NewTaskVC;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 				1145EF0B2A1FC9000036D355 /* MainViewController.swift */,
 				118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */,
 				118D38302A3607450094B7D5 /* AboutViewController.swift */,
+				1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -355,11 +358,13 @@
 				118D382B2A3603C90094B7D5 /* TabBarController.swift in Sources */,
 				11A501D42A71372B00D30CFF /* TypesCollectionViewCells.swift in Sources */,
 				1145EF0C2A1FC9000036D355 /* MainViewController.swift in Sources */,
+				1162C3D22A7F7AF6006A5941 /* DescriptionView.swift in Sources */,
 				11B6A9AC2A0EED93009EB4B8 /* RepeatPasswordView.swift in Sources */,
 				11B6A9A92A0A98D2009EB4B8 /* RegistrationViewController.swift in Sources */,
 				11A501D22A6D7FF600D30CFF /* Tasks.swift in Sources */,
 				11B6A97C2A07D86D009EB4B8 /* AppDelegate.swift in Sources */,
 				11A501CD2A6D3FD400D30CFF /* NewTaskViewController.swift in Sources */,
+				1162C3D62A7F7FB8006A5941 /* PopupViewController.swift in Sources */,
 				11B6A9992A082B88009EB4B8 /* LoginTFView.swift in Sources */,
 				118D38122A28EFC80094B7D5 /* OnboardingViewController.swift in Sources */,
 				11B6A97E2A07D86D009EB4B8 /* SceneDelegate.swift in Sources */,
@@ -371,7 +376,6 @@
 				118D381A2A2D2FF00094B7D5 /* LoginView.swift in Sources */,
 				1145EF062A1691210036D355 /* OnboardingSlides.swift in Sources */,
 				1162C3CE2A7EC22D006A5941 /* harmonogrApp.xcdatamodeld in Sources */,
-				11D09BDF2A41E40F0056941A /* WeekView.swift in Sources */,
 				118D381C2A2F9A910094B7D5 /* LoginTypeView.swift in Sources */,
 				1162C3D02A7EC275006A5941 /* StorageManager.swift in Sources */,
 				118D38142A28F21D0094B7D5 /* OnboardingView.swift in Sources */,

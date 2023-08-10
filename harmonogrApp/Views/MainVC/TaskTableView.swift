@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol TaskTableViewDelegate {
+    func didSelectAt(_ task: ToDo, index indexPath: IndexPath)
+}
+
 class TaskTableView: UIView {
     
     private let viewContext = StorageManager.shared.persistentContainer.viewContext
     private let storageManager = StorageManager.shared
+    
+    var delegate: TaskTableViewDelegate?
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -79,6 +85,10 @@ extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTask = storageManager.taskList[indexPath.row]
+        delegate?.didSelectAt(selectedTask, index: indexPath)
+    }
 }
 
 extension TaskTableView {
