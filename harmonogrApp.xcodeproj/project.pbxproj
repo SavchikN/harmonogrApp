@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1140719C2A88A3D900EEB715 /* ComplitedTableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140719B2A88A3D900EEB715 /* ComplitedTableTableView.swift */; };
 		1145EF062A1691210036D355 /* OnboardingSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1145EF052A1691210036D355 /* OnboardingSlides.swift */; };
 		1145EF0C2A1FC9000036D355 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1145EF0B2A1FC9000036D355 /* MainViewController.swift */; };
 		1162C3CE2A7EC22D006A5941 /* harmonogrApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3CC2A7EC22D006A5941 /* harmonogrApp.xcdatamodeld */; };
 		1162C3D02A7EC275006A5941 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3CF2A7EC275006A5941 /* StorageManager.swift */; };
 		1162C3D22A7F7AF6006A5941 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */; };
-		1162C3D62A7F7FB8006A5941 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */; };
 		118D38122A28EFC80094B7D5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */; };
 		118D38142A28F21D0094B7D5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38132A28F21D0094B7D5 /* OnboardingView.swift */; };
 		118D38162A2BA6BD0094B7D5 /* PageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D38152A2BA6BD0094B7D5 /* PageImageView.swift */; };
@@ -47,12 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1140719B2A88A3D900EEB715 /* ComplitedTableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplitedTableTableView.swift; sourceTree = "<group>"; };
 		1145EF052A1691210036D355 /* OnboardingSlides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlides.swift; sourceTree = "<group>"; };
 		1145EF0B2A1FC9000036D355 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1162C3CD2A7EC22D006A5941 /* harmonogrApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = harmonogrApp.xcdatamodel; sourceTree = "<group>"; };
 		1162C3CF2A7EC275006A5941 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		118D38132A28F21D0094B7D5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		118D38152A2BA6BD0094B7D5 /* PageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageImageView.swift; sourceTree = "<group>"; };
@@ -135,6 +135,7 @@
 				11A501C82A5EE6C800D30CFF /* TitleView.swift */,
 				11A501D52A715FC600D30CFF /* TaskTableView.swift */,
 				1162C3D12A7F7AF6006A5941 /* DescriptionView.swift */,
+				1140719B2A88A3D900EEB715 /* ComplitedTableTableView.swift */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 				1145EF0B2A1FC9000036D355 /* MainViewController.swift */,
 				118D38112A28EFC80094B7D5 /* OnboardingViewController.swift */,
 				118D38302A3607450094B7D5 /* AboutViewController.swift */,
-				1162C3D52A7F7FB8006A5941 /* PopupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +354,7 @@
 				11A501D02A6D7E4400D30CFF /* TaskTypeView.swift in Sources */,
 				118D381E2A2FA87F0094B7D5 /* SignUpView.swift in Sources */,
 				118D38312A3607450094B7D5 /* AboutViewController.swift in Sources */,
+				1140719C2A88A3D900EEB715 /* ComplitedTableTableView.swift in Sources */,
 				11B6A9802A07D86D009EB4B8 /* LoginViewController.swift in Sources */,
 				118D382B2A3603C90094B7D5 /* TabBarController.swift in Sources */,
 				11A501D42A71372B00D30CFF /* TypesCollectionViewCells.swift in Sources */,
@@ -364,7 +365,6 @@
 				11A501D22A6D7FF600D30CFF /* Tasks.swift in Sources */,
 				11B6A97C2A07D86D009EB4B8 /* AppDelegate.swift in Sources */,
 				11A501CD2A6D3FD400D30CFF /* NewTaskViewController.swift in Sources */,
-				1162C3D62A7F7FB8006A5941 /* PopupViewController.swift in Sources */,
 				11B6A9992A082B88009EB4B8 /* LoginTFView.swift in Sources */,
 				118D38122A28EFC80094B7D5 /* OnboardingViewController.swift in Sources */,
 				11B6A97E2A07D86D009EB4B8 /* SceneDelegate.swift in Sources */,

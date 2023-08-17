@@ -31,15 +31,21 @@ class MainViewController: UIViewController {
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl()
+        let sc = UISegmentedControl(items: segmentedTitles)
         sc.selectedSegmentTintColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        sc.selectedSegmentIndex = 0
+        sc.setTitleTextAttributes([.font: UIFont(name: "Avenir Next", size: 18) as Any], for: .normal)
+        sc.setTitleTextAttributes([.font: UIFont(name: "Avenir Next Medium", size: 20) as Any], for: .selected)
+        sc.addTarget(self, action: #selector(segmentedControlValueChanged), for: .touchUpInside)
         return sc
     }()
     
     let titleView = TitleView()
     let tableView = TaskTableView()
+    let complitedTableView = ComplitedTableTableView()
+    let descriptionView = DescriptionView()
     
-    let segmentedTitles = ["High", "Medium", "Low"]
+    let segmentedTitles = ["Process", "Complited"]
     var selectedSegmentIndex = 0
     
     override func viewDidLoad() {
@@ -49,9 +55,9 @@ class MainViewController: UIViewController {
         navigationController?.navigationItem.backBarButtonItem = .none
         view.backgroundColor = .white
         tableView.delegate = self
+        descriptionView.delegate = self
         
         setupViews()
-        configure()
         setConstraints()
         fetchData()
     }
@@ -69,12 +75,6 @@ class MainViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-    private func configure() {
-        for (index, title) in segmentedTitles.enumerated() {
-            segmentedControl.insertSegment(withTitle: title, at: index, animated: false)
-        }
-    }
-    
     private func fetchData() {
         let fetchRequest = ToDo.fetchRequest()
         do {
@@ -89,12 +89,11 @@ extension MainViewController: TaskTableViewDelegate {
     func didSelectAt(_ task: ToDo, index indexPath: IndexPath) {
         tableView.tableView.deselectRow(at: indexPath, animated: true)
         
-        let descriptionView = DescriptionView(frame: CGRect(x: 0, y: 0, width: 300, height: 330))
+        let descriptionView = DescriptionView(frame: CGRect(x: 0, y: 0, width: 300, height: 400))
         descriptionView.center = tableView.center
         
         descriptionView.mainTitle.text = task.title
-        descriptionView.descriptionLabel.text = task.descript
-        
+        descriptionView.descriptionTextView.text = task.descript
         descriptionView.showAnimated(on: self)
         
     }
@@ -105,6 +104,17 @@ extension MainViewController {
         let newTaskVC = NewTaskViewController(mainVC: self)
         newTaskVC.delegate = self
         present(newTaskVC, animated: true)
+    }
+    
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            navigationController?.title = "Complited"
+        case 1:
+            navigationController?.title = "Processed"
+        default:
+            print("PRINT")
+        }
     }
 }
 

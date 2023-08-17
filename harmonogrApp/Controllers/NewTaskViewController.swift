@@ -8,11 +8,6 @@
 import UIKit
 import SnapKit
 
-//protocol NewTaskDelegate: class {
-//    func taskDidAdd(task: Tasks)
-//    
-//}
-
 class NewTaskViewController: UIViewController {
     
     let viewContext = StorageManager.shared.persistentContainer.viewContext
@@ -116,12 +111,6 @@ extension NewTaskViewController {
         
         delegate.reloadData()
         dismiss(animated: true)
-        print("ЗДЕСЬ")
-        
-//        let newTask = Tasks(name: taskName, description: description, taskType: taskTypeView.currentType)
-//        Tasks.addTask(task: newTask)
-//        mainVC?.tableView.tableView.reloadData()
-//        dismiss(animated: true)
     }
 }
 
